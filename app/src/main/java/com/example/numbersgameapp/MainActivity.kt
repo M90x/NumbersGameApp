@@ -95,6 +95,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun reset(){
+        msgList.clear()
+        answer = Random.nextInt(0, 11)
+        guesses = 3
+
+    }
+
     private fun disableEntry(){
         guessesBtn.isEnabled = false
         guessesBtn.isClickable = false
@@ -113,6 +120,7 @@ class MainActivity : AppCompatActivity() {
             // positive button text and action
             .setPositiveButton("Yes", DialogInterface.OnClickListener {
                     dialog, id -> this.recreate()
+                reset()
             })
             // negative button text and action
             .setNegativeButton("No", DialogInterface.OnClickListener {
